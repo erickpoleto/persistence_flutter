@@ -1,4 +1,9 @@
+import 'package:bytebank/database/app_database.dart';
+
+import 'package:bytebank/screens/dashboard.dart';
 import 'package:flutter/material.dart';
+
+import 'models/contact.dart';
 
 void main() {
   runApp(BytebankApp());
@@ -20,73 +25,3 @@ class BytebankApp extends StatelessWidget {
     );
   }
 }
-
-class Dashboard extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-            backgroundColor: Theme.of(context).primaryColor,
-            title: Text('Dashboard')
-        ),
-        drawer: Drawer(),
-        body: Column(
-          children:[
-            Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Image.asset('images/bytebank_logo.png'),
-            ),
-            Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    MenuBlock('Contacts', Icons.people),
-                    MenuBlock('Clock', Icons.alarm),
-                  ]
-                )
-            ),
-            Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      MenuBlock('Contacts', Icons.people),
-                      MenuBlock('Clock', Icons.alarm),
-                    ]
-                )
-            )
-          ]
-        )
-
-    );
-  }
-}
-
-class MenuBlock extends StatelessWidget {
-
-
-  String title;
-  IconData blockIcon;
-
-  MenuBlock(this.title, this.blockIcon);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(8.0),
-      width: 160,
-      height: 120,
-      color: Theme.of(context).primaryColor,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Icon(blockIcon, color: Colors.white, size: 32),
-          Text(title, style: TextStyle(color: Colors.white, fontSize: 20))
-        ],
-      ),
-    );
-  }
-}
-
